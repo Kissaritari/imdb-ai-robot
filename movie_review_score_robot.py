@@ -19,7 +19,8 @@ def get_movie_review_score_from_email():
 
 def parse_input_email() -> str:
      for item in workitems.inputs:
-        return item.email['text']
+        print(item.email)
+        return item.email
 
 def get_movie_summary(title) -> str:
     """Get the movie summary from rotten tomatoes. The site search does not work well with years, so it is left out here."""
