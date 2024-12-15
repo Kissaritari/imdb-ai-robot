@@ -1,6 +1,6 @@
 from robocorp import vault
 
-class email_handler:
+class EmailHandler:
     def __init__(self):
         secret = vault.get_secret("secrets")
         apiKey = secret['emailKey']

@@ -1,8 +1,8 @@
 import os
 from robocorp.tasks import task
 from robocorp import workitems
-from email_handler import email_handler
-import gemini_handler 
+from email_handler import EmailHandler
+from gemini_handler import GeminiHandler 
 
 @task
 def get_movie_review_score_from_email():
@@ -12,9 +12,9 @@ def get_movie_review_score_from_email():
         os.environ['RPA_SECRET_MANAGER'] = 'RPA.Robocorp.Vault.FileSecrets'
         os.environ['RPA_SECRET_FILE'] = 'secrets.json'
    
-    gemini = gemini_handler()
-    mail = email_handler()
+    gemini = GeminiHandler()
+    mail = EmailHandler()
 
     for item in workitems.inputs:
         workitems.outputs.create(payload={"key": "value"})
-        gemini.get_review_score()
+        gemini.get_review_score(item.payload)

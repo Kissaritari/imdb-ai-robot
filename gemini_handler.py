@@ -2,7 +2,7 @@ from robocorp import vault
 import os
 import google.generativeai as genai
 
-class gemini_handler:
+class GeminiHandler:
     def __init__(self):
         secret = vault.get_secret("secrets")
         apiKey = secret['apikey']
