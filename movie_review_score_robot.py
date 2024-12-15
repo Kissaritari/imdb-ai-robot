@@ -12,9 +12,12 @@ def get_movie_review_score_from_email():
     mail = EmailHandler()
     
     title = parse_input_email()
-    print(title)
-    gemini.get_review_score(title)
-    get_movie_summary(title)
+    score = gemini.get_review_score(title)
+    summary = get_movie_summary(title)
+    
+    mail.form_mail(title, score, summary)
+    sender = workitems.inputs.current.payload["email"]["from"]["address"]
+    mail.send_mail(sender)
 
 
 def parse_input_email() -> str:
@@ -35,7 +38,7 @@ def get_movie_summary(title) -> str:
     browser.page().click(first_result_selector)
 
     text = browser.page().inner_text(
-        'div[slot="description"] drawer-more rt-text[slot="content"]'
+        'rt-text[slot="content"]'
     )
     print(text)
     return text
