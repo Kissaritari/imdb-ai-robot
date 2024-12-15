@@ -10,13 +10,16 @@ def get_movie_review_score_from_email():
 
     gemini = GeminiHandler()
     mail = EmailHandler()
+    
+    title = parse_input_email()
+    print(title)
+    get_movie_summary(title)
+    gemini.get_review_score(title)
 
-    for item in workitems.inputs:
-        workitems.outputs.create(payload={"key": "value"}) 
-        print(item.payload)
-        get_movie_summary(item.payload)
-        gemini.get_review_score(item.payload)
 
+def parse_input_email() -> str:
+     for item in workitems.inputs:
+        return item.email['text']
 
 def get_movie_summary(title) -> str:
     """Get the movie summary from rotten tomatoes. The site search does not work well with years, so it is left out here."""
