@@ -1,13 +1,14 @@
 from robocorp import vault
 
+
 class EmailHandler:
     def __init__(self):
         secret = vault.get_secret("secrets")
-        apiKey = secret['emailKey']
+        apiKey = secret["emailKey"]
 
-    def form_mail(self,content: str):
+    def form_mail(self, content: str):
         pass
-    
-    def send_mail(self,sender: str, receiver: str):
+
+    def send_mail(self, sender: str, receiver: str):
         self.form_mail()
         pass

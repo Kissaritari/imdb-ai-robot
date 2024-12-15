@@ -12,6 +12,7 @@ dependencies:
   - pip:
     - rpaframework==29.0.0        # https://rpaframework.org/releasenotes.html
     - robocorp==2.1.2             # https://pypi.org/project/robocorp
+    - robocorp-browser==2.3.4
     - google-generativeai==0.8.3
     - google-api-python-client==2.155.0
     - google-auth-httplib2==0.2.0
