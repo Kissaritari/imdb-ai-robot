@@ -9,7 +9,7 @@ class GeminiHandler:
         self.apiKey = secret["apikey"]
 
 
-    def get_review_score(self, name: str, year: str): 
+    def get_review_score(self, name: str, year: str = ""): 
         """ Get review score for the movie using the `genai` library with the "gemini-1.5-flash" generative model.
             Parameters:
 
