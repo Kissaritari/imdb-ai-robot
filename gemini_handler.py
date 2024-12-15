@@ -1,10 +1,10 @@
-from RPA.Robocorp.Vault import Vault
+from robocorp import vault
 import os
 import google.generativeai as genai
 
 class gemini_handler:
     def __init__(self):
-        secret = Vault().get_secret("secrets")
+        secret = vault.get_secret("secrets")
         apiKey = secret['apikey']
 
 ''' Get review score for the movie.
