@@ -3,7 +3,7 @@ from robocorp.tasks import task
 from robocorp import workitems, browser
 from email_handler import EmailHandler
 from gemini_handler import GeminiHandler
-
+import time
 
 @task
 def get_movie_review_score_from_email():
@@ -13,8 +13,8 @@ def get_movie_review_score_from_email():
     
     title = parse_input_email()
     print(title)
-    get_movie_summary(title)
     gemini.get_review_score(title)
+    get_movie_summary(title)
 
 
 def parse_input_email() -> str:
